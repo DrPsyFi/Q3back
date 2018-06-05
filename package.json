@@ -1,0 +1,24 @@
+{
+  "name": "q3Back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js",
+    "knex": "knex",
+    "latest": "knex migrate:latest",
+    "rollback": "knex migrate:rollback"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "knex": "^0.14.6",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.3"
+  }
+}
