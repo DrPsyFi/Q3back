@@ -6,8 +6,9 @@ exports.up = function(knex, Promise) {
     table.increments()
     table.string('fName').notNullable()
     table.string('lName').notNullable()
+    table.string('userName').notNullable()
     table.string('password').notNullable()
-    table.string('bio').defaultTo('I am kinda shy.')
+    table.text('bio').defaultTo('I am kinda shy.')
     table.string('image').defaultTo('Coming Soon!')
   })
 

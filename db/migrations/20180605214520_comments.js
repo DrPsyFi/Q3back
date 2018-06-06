@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.increments()
     table.integer('lyric_id').references('lyrics.id')
     table.integer('user_id').references('users.id')
-    table.string('comment').notNullable()
+    table.text('comment').notNullable()
     table.integer('likes').defaultTo(0)
     table.timestamps(true, true)
   })
