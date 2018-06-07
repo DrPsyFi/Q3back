@@ -269,6 +269,10 @@ exports.seed = function(knex, Promise) {
 
           }
         ]
-    );
-    });
+    )
+    .then(() => {
+      return knex.raw(`SELECT setval('${TABLE_NAME}_id_seq', (SELECT MAX(id) FROM ${TABLE_NAME}));`)
+      })
+
+    })
 };

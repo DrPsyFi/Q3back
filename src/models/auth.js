@@ -1,9 +1,10 @@
 ////////////////Needs Major review to get going
 
 
-const db = require('../../db')
+const db = require("../../db")
 const bcrypt = require('bcrypt-as-promised')
 const userModel = require('./users')
+
 
 //////////////////////////////////////////////////////////////////////////////
 // Basic CRUD Methods

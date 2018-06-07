@@ -24,11 +24,14 @@ if(process.env.NODE_ENV !== 'production') require('dotenv').load()
 //////////////////////////////////////////////////////////////////////////////
 // Routes
 //////////////////////////////////////////////////////////////////////////////
-//
+
 // app.use('/api', require('./routes/snacks'))
 // app.use('/api', require('./routes/reviews'))
-// app.use('/auth', require('./routes/auth'))
-// app.use('/users', require('./routes/users'))
+app.use('/auth', require('./routes/auth'))
+app.use('/users', require('./routes/users'))
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////
 // Default Route
@@ -43,6 +46,7 @@ app.use((req, res, next) => next({status: 404, message: 'Route not found' }))
 app.use((err, req, res, next) => {
   console.error(err)
   const status = err.status || 500
+  console.log(err);
   res.status(status).json({ error: err })
 })
 
