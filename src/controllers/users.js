@@ -6,102 +6,39 @@ const userModel = require('../models/users')
 //////////////////////////////////////////////////////////////////////////////
 
 function create(req, res, next){
-  console.log(req.body.password)
- if(!req.body.username){
+
+
+  if(!req.body.fName || !req.body.lName)
+    return next({status: 400, message: 'You need to add a first and last name.' })
+
+  if(!req.body.userName){
    return next({ status: 400, message: 'Bad username'})
- }
+  }
 
- if(!req.body.password){
+  if(!req.body.password){
    return next({ status: 400, message: 'Bad password'})
- }
+  }
 
- userModel.create(req.body.username, req.body.password)
- .then(function(data){
-   return res.status(201).send({ data })
- })
- .catch(next)
-}
+  userModel.create(req.body.fName, req.body.lName, req.body.userName, req.body.password, req.body.bio, req.body.image)
+    .then(function(data){
+    return res.status(201).send({ data })
+  })
+  .catch(next)
+  }
 
-function createRecipe(req, res, next) {
- if(!req.body.recipeName) {
-     return next({ status: 400, message: 'Bad recipe name'})
-   }
+//////// Will PROCEED AFTER AUTHENTICATION
+function getUserById(req, res, next) {
 
-   if(!req.body.recipeIngredients){
-     return next({ status: 400, message: 'Bad ingredients'})
-   }
-   if(!req.body.recipeInstructions){
-     return next({ status: 400, message: 'Bad instructions'})
-   }
+  console.log(req.body, "GET USER");
 
-   userModel.createRecipe(req.params.userid,req.body.recipeName, req.body.recipeIngredients, req.body.recipeInstructions,req.body.recipePicture)
-   .then(function(data){
-     return res.status(201).send({ data })
-   })
-   .catch(next)
- }
-
-
-function getAllRecipe(req, res, next ) {
-
- userModel.getAllRecipe(req.params.userid)
- .then(function(data){
-
-   return res.status(200).send({ data })
- })
- .catch(next)
-}
-
-function getOneRecipe(req, res, next) {
- userModel.getOneRecipe(req.params.userid, req.params.recipeid)
- .then(function(data){
+  userModel.getOneByUserId(req.params.id)
+  .then(function(data){
    return res.status(200).send( { data })
- })
- .catch(next)
-}
+  })
+  .catch(next)
+  }
 
-function getNotes(req, res, next) {
- userModel.getNotes(req.params.userid, req.params.recipeid)
- .then(function(data){
-   return res.status(200).send( { data })
- })
- .catch(next)
-}
 
-function createNotes(req, res, next) {
-
-   if(!req.body.notes){
-     return next({ status: 400, message: 'no notes'})
-   }
-
-   userModel.createNotes(req.params.userid, req.params.recipeid, req.body.notes, req.body.rating)
-   .then(function(data){
-     return res.status(201).send({ data })
-   })
-   .catch(next)
- }
-
-function deleteRecipe(req, res, next) {
-
- if(!req.params.recipeid) {
-   return next({ status:400, message: "No recipe with that id."})
- }
- userModel.deleteRecipe(req.params.recipeid)
- .then(function(data){
-
-   return res.status(201).send({ data })
- })
-}
-
-function updateRecipe(req, res, next) {
- if(!req.params.recipeid) {
-   return next({ status:400, message: "There is no recipe with that Id."})
- }
- userModel.updateRecipe(req.params.recipeid, req.body.ingredients, req.body.instructions )
- .then(function(data){
-   return res.status(201).send({ data })
- })
- }
 
 //////////////////////////////////////////////////////////////////////////////
 // Quality of Life functions
@@ -109,11 +46,6 @@ function updateRecipe(req, res, next) {
 
 module.exports = {
  create,
- createRecipe,
- getAllRecipe,
- getOneRecipe,
- getNotes,
- createNotes,
- deleteRecipe,
- updateRecipe,
+ getUserById,
+ 
 }

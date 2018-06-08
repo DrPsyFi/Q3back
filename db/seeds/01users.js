@@ -11,7 +11,7 @@ exports.seed = function(knex, Promise) {
             "fName": "Sunil",
             "lName": "Kakar",
             "userName": "Sunshine",
-            password: "something",
+            password: "$2a$10$6UtE0vuhVpPBFKIUN0rgkub8TQ94r4wacs/ZFyteYIeN3xBXd91ce",
             "bio": "Sweet little baby, I don't know where you been. Soul of a woman was created below, yeah. Sing along, girl.. Wanted a woman, never bargained for you. You don't know what you're missing now.. Every day I work so hard, bringin' home my hard-earned pay. Been dazed and confused . Gonna love you, baby, here I come again. I had a dream.. Lotsa people talkin', . Trad the planet when heaven sent me. Down in the valley blow,. If we could just join hands. Oh throw down your plow and hoe. Every day I work so hard, bringin' home my hard-earned pay",
             "image": 'https://www.fillmurray.com/284/196'
           }, {
@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
             "fName": "Scott",
             "lName": "Hurlow",
             "userName": "ScottyBoy",
-            password: "something",
+            password: "$2a$10$6UtE0vuhVpPBFKIUN0rgkub8TQ94r4wacs/ZFyteYIeN3xBXd91ce",
             "bio": "Sweet little baby, I don't know where you been. Soul of a woman was created below, yeah. Sing along, girl.. Wanted a woman, never bargained for you. You don't know what you're missing now.. Every day I work so hard, bringin' home my hard-earned pay. Been dazed and confused . Gonna love you, baby, here I come again. I had a dream.. Lotsa people talkin', . Trad the planet when heaven sent me. Down in the valley blow,. If we could just join hands. Oh throw down your plow and hoe. Every day I work so hard, bringin' home my hard-earned pay",
             "image": 'https://www.fillmurray.com/284/196'
           }, {
@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
             "fName": "Roger",
             "lName": "Schmidt",
             "userName": "RogerDoger",
-            password: "something",
+            password: "$2a$10$6UtE0vuhVpPBFKIUN0rgkub8TQ94r4wacs/ZFyteYIeN3xBXd91ce",
             "bio": "Sweet little baby, I don't know where you been. Soul of a woman was created below, yeah. Sing along, girl.. Wanted a woman, never bargained for you. You don't know what you're missing now.. Every day I work so hard, bringin' home my hard-earned pay. Been dazed and confused . Gonna love you, baby, here I come again. I had a dream.. Lotsa people talkin', . Trad the planet when heaven sent me. Down in the valley blow,. If we could just join hands. Oh throw down your plow and hoe. Every day I work so hard, bringin' home my hard-earned pay",
             "image": 'https://www.fillmurray.com/284/196'
           }, {
@@ -35,7 +35,7 @@ exports.seed = function(knex, Promise) {
             "fName": "Carrie",
             "lName": "Havranek",
             "userName": "CarrieBerry",
-            password: "something",
+            password: "$2a$10$6UtE0vuhVpPBFKIUN0rgkub8TQ94r4wacs/ZFyteYIeN3xBXd91ce",
             "bio": "Sweet little baby, I don't know where you been. Soul of a woman was created below, yeah. Sing along, girl.. Wanted a woman, never bargained for you. You don't know what you're missing now.. Every day I work so hard, bringin' home my hard-earned pay. Been dazed and confused . Gonna love you, baby, here I come again. I had a dream.. Lotsa people talkin', . Trad the planet when heaven sent me. Down in the valley blow,. If we could just join hands. Oh throw down your plow and hoe. Every day I work so hard, bringin' home my hard-earned pay",
             "image": 'https://www.fillmurray.com/284/196'
           }, {
@@ -43,7 +43,7 @@ exports.seed = function(knex, Promise) {
             "fName": "Meera",
             "lName": "Kakar",
             "userName": "MeerKat",
-            password: "something",
+            password: "$2a$10$6UtE0vuhVpPBFKIUN0rgkub8TQ94r4wacs/ZFyteYIeN3xBXd91ce",
             "bio": "Sweet little baby, I don't know where you been. Soul of a woman was created below, yeah. Sing along, girl.. Wanted a woman, never bargained for you. You don't know what you're missing now.. Every day I work so hard, bringin' home my hard-earned pay. Been dazed and confused . Gonna love you, baby, here I come again. I had a dream.. Lotsa people talkin', . Trad the planet when heaven sent me. Down in the valley blow,. If we could just join hands. Oh throw down your plow and hoe. Every day I work so hard, bringin' home my hard-earned pay",
             "image": 'https://www.fillmurray.com/284/196'
           }

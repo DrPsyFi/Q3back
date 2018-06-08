@@ -5,6 +5,6 @@ const knexConfig = require('../knexfile')[environment];
 const knex = require('knex')(knexConfig);
 
 
-knex.destroy();
+
 
 module.exports = knex;

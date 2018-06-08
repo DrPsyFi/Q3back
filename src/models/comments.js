@@ -21,23 +21,7 @@
 //   )
 // }
 //
-// function getOneRecipe(userid, recipeid){
-//   return (
-//     db('recipes')
-//     .where({ users_id: userid , id: recipeid})
-//     .first()
-//   )
-// }
-//
-//
-// function getNotes(userid, recipesid) {
-//   return (
-//     db('notes')
-//     .where({users_id: userid , recipes_id: recipesid})
-//   )
-// }
-//
-//
+
 // //////////////////////////////////////////////////////////////////////////////
 // // Create a user
 // //
@@ -77,18 +61,7 @@
 //   })
 // }
 //
-// function createRecipe(users_id,recName, instructions, ingredients, picture) {
-//   return (
-//     db('recipes')
-//     .insert({users_id, recName, instructions, ingredients, picture})
-//     .returning('*')
-//   )
-//   .then(function([data]){
-//     console.log(data)
-//     return data
-//   })
-// }
-//
+
 // function createNotes(users_id, recipes_id, notes, rating) {
 //   return (
 //     db('notes')
@@ -101,45 +74,9 @@
 //   })
 //   }
 //
-// function updateRecipe(id, ingredients, instructions ) {
-//   return (
-//     db('recipes')
-//     .where({id: id})
-//     .update({ ingredients, instructions})
-//     .returning('*')
-//   )
-//   .then(function([data]){
-//     console.log(data)
-//     return data
-//   })
-//   }
-//
-// function deleteRecipe(id) {
-//
-//   return (
-//     db('notes')
-//     .delete()
-//     .where({recipes_id: id})
-//   ).then(function(){
-//     return db("recipes")
-//     .delete()
-//     .where({id})
-//     .returning('*')
-//   })
-//   .then(function([data]){
-//     console.log(data)
-//     return data
-//   })
-//   }
-//
+
 // module.exports = {
-//   getOneByUserName,
-//   getAllRecipe,
-//   getOneRecipe,
-//   getNotes,
+
 //   create,
-//   createRecipe,
-//   createNotes,
-//   deleteRecipe,
-//   updateRecipe,
+
 // }
