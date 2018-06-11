@@ -7,34 +7,34 @@
 
 
 //create this comments
-// const userModel = require('../models/user')
+const commentsModel = require('../models/comments')
 //
 // //////////////////////////////////////////////////////////////////////////////
 // // Basic CRUD Methods
 // //////////////////////////////////////////////////////////////////////////////
-//
-// function create(req, res, next){
-//  if(!req.body.username){
-//    return next({ status: 400, message: 'Bad username'})
-//  }
-//
-//  if(!req.body.password){
-//    return next({ status: 400, message: 'Bad username'})
-//  }
-//
-//  userModel.create(req.body.username, req.body.password)
-//  .then(function(data){
-//    return res.status(201).send({ data })
-//  })
-//  .catch(next)
-// }
+
+function getCommentsByLyricsId(req, res, next){
+
+  console.log('params', req.params, req.params.lyricsId);
+ if(!req.params.lyricsId){
+   return next({ status: 400, message: 'Bad Lyric Id'})
+ }
+
+ const lyricsId = parseInt(req.params.lyricsId);
+
+ commentsModel.getCommentsByLyricsId(lyricsId)
+ .then(function(data){
+   return res.status(201).send({ data })
+ })
+ .catch(next)
+}
 
 // //////////////////////////////////////////////////////////////////////////////
 // // Quality of Life functions
 // //////////////////////////////////////////////////////////////////////////////
 
-// module.exports = {
-//  create,
-//  createRecipe,
+module.exports = {
+ getCommentsByLyricsId
 
-// }
+
+}

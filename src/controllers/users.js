@@ -38,6 +38,28 @@ function getUserById(req, res, next) {
   .catch(next)
   }
 
+function getLyricsByUserId(req, res, next) {
+
+    userModel.getLyricsByUserId(req.params.id)
+    .then(function(data){
+     return res.status(200).send( { data })
+    })
+    .catch(next)
+  }
+
+function search(req, res, next) {
+
+      userModel.search(req.params.artistName,req.params.songName )
+      .then(function(data){
+
+        console.log(data);
+       return res.status(200).send( { data })
+      })
+      .catch(next)
+    }
+
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -47,5 +69,7 @@ function getUserById(req, res, next) {
 module.exports = {
  create,
  getUserById,
- 
+ getLyricsByUserId,
+ search,
+
 }

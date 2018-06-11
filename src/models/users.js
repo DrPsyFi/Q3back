@@ -1,4 +1,5 @@
 const db = require('../../db')
+const axios = require('axios')
 const bcrypt = require('bcrypt-as-promised')
 
 //////////////////////////////////////////////////////////////////////////////
@@ -20,6 +21,45 @@ function getOneByUserId(id){
     .first()
   )
 }
+
+function getLyricsByUserId(userId) {
+  return (
+    db('lyrics')
+      .join("mylyrics", "mylyrics.lyrics_id", "=", "lyrics.id")
+      .select('mylyrics.user_id', "lyrics.id", "songName")
+      .where( {'mylyrics.user_id': userId})
+  )
+
+}
+
+function search(artistName, songName) {
+  return (
+    db('lyrics')
+      .select('id')
+      .where( {'artistName': artistName, 'songName': songName})
+      .then(data => {
+        if (data.length > 0) {
+          return data;
+          ///find out if there are any comments
+        }
+        else {
+          return axios({
+            url: `https://orion.apiseeds.com/api/music/lyric/${artistName}/${songName}`,
+            method: 'GET',
+            params: {
+              apikey: '6X3VgfeuvCuOVU39vkUVrK9jcwXidMpGzuvVmkCWYeiQntDK3jyeBSHB4mzeNEJx'
+            }
+          }).then(response => {
+            return response.data.result;
+          }).catch(err => {
+            throw err.response.data.error
+          })
+
+        }
+      })
+  )
+}
+
 
 //////////////////////////////////////////////////////////////////////////////
 // Create a user
@@ -64,5 +104,6 @@ module.exports = {
   create,
   getOneByUserName,
   getOneByUserId,
-
+  getLyricsByUserId,
+  search,
 }

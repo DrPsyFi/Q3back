@@ -29,7 +29,11 @@ if(process.env.NODE_ENV !== 'production') require('dotenv').load()
 // app.use('/api', require('./routes/reviews'))
 app.use('/auth', require('./routes/auth'))
 app.use('/users', require('./routes/users'))
-app.use('/', require('./routes/lyrics'))
+app.use('/lyrics', require('./routes/lyrics'))
+app.use('/comments', require('./routes/comments'))
+
+
+//API TOKEN : 6X3VgfeuvCuOVU39vkUVrK9jcwXidMpGzuvVmkCWYeiQntDK3jyeBSHB4mzeNEJx
 
 
 //////////////////////////////////////////////////////////////////////////////
