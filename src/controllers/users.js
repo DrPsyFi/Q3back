@@ -51,17 +51,31 @@ function search(req, res, next) {
 
       userModel.search(req.params.artistName,req.params.songName )
       .then(function(data){
-
-        console.log(data);
        return res.status(200).send( { data })
       })
       .catch(next)
     }
 
+function addNewLyricById(req, res, next) {
+      console.log(req.params.id)
+      userModel.addNewLyricById(req.params.id, req.body.songName, req.body.artistName, req.body.lyrics)
+
+      // .then(function(data){
+      //   console.log(data.data)
+      //   return res.status(200).send( { data })
+      // })
+      // .catch(next)
+    }
+
+function addCommentByLyricsId(req, res, next) {
+          userModel.addCommentByLyricsId(req.params.user_id, req.body.lyrics_id, req.body.comment)
 
 
-
-
+          // .then(function(data){
+          //  return res.status(200).send( { data })
+          // })
+          // .catch(next)
+        }
 //////////////////////////////////////////////////////////////////////////////
 // Quality of Life functions
 //////////////////////////////////////////////////////////////////////////////
@@ -71,5 +85,7 @@ module.exports = {
  getUserById,
  getLyricsByUserId,
  search,
+ addNewLyricById,
+ addCommentByLyricsId,
 
 }

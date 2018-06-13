@@ -32,6 +32,66 @@ function getLyricsByUserId(userId) {
 
 }
 
+function addNewLyricById(user_id, songName, artistName, lyrics) {
+  return (
+    db('lyrics')
+    .insert({user_id, songName, artistName, lyrics})
+    .returning('*')
+  )
+  .then(function([data]){
+    console.log(data)
+    return data
+  })
+}
+
+// function deleteLyric(id) {
+//
+//   return (
+//     db()
+//     .delete()
+//     .where({lyrics_id: id})
+//   ).then(function(){
+//     return db("lyrics")
+//     .delete()
+//     .where({id})
+//     .returning('*')
+//   })
+//   .then(function([data]){
+//     console.log(data)
+//     return data
+//   })
+//   }
+
+function addCommentByLyricsId(user_id, lyrics_id, comment) {
+  return (
+    db('comments')
+    .insert({user_id, lyrics_id, comment})
+    .returning('*')
+  )
+  .then(function([data]){
+    console.log(data)
+    return data
+  })
+}
+
+// function deleteLyric(id) {
+//
+//   return (
+//     db()
+//     .delete()
+//     .where({lyrics_id: id})
+//   ).then(function(){
+//     return db("lyrics")
+//     .delete()
+//     .where({id})
+//     .returning('*')
+//   })
+//   .then(function([data]){
+//     console.log(data)
+//     return data
+//   })
+//   }
+
 function search(artistName, songName) {
   return (
     db('lyrics')
@@ -106,4 +166,5 @@ module.exports = {
   getOneByUserId,
   getLyricsByUserId,
   search,
+  addNewLyricById,
 }
